@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "318168718125",
+    "firebase_url": "https://my-project-7f6da.firebaseio.com",
+    "project_id": "my-project-7f6da",
+    "storage_bucket": "my-project-7f6da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318168718125:android:136f4e563ef1a5f14a51a4",
+        "android_client_info": {
+          "package_name": "com.dixre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318168718125-m50pih5rii9i75joehj4b2utrp7i2f5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHKSFR7Ut6OP6VkAgPR33FdedJiCSjyfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318168718125-m50pih5rii9i75joehj4b2utrp7i2f5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318168718125:android:ae5969d957e146834a51a4",
+        "android_client_info": {
+          "package_name": "com.dixre.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318168718125-m50pih5rii9i75joehj4b2utrp7i2f5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHKSFR7Ut6OP6VkAgPR33FdedJiCSjyfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318168718125-m50pih5rii9i75joehj4b2utrp7i2f5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
