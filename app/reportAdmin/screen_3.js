@@ -37,8 +37,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import ViewPager from '@react-native-community/viewpager';
 import { bold } from 'ansi-colors';
-import {Container, content,CheckBox, Radio,Thumbnail} from "native-base";
-import firebase, { firestore } from 'react-native-firebase';
+import {Container, content, Thumbnail} from "native-base";
+import firebase from 'react-native-firebase';
 //import EvaButtons from './component/iconComponent/evaButtons'
 const storage = AsyncStorage
 
@@ -91,8 +91,7 @@ class ScreenC extends React.Component{
           password:'',
           fullName:'',
           modalStatus: false,
-          error:'',
-          checked:'false'
+          error:''
           
         }
       }
@@ -119,16 +118,7 @@ class ScreenC extends React.Component{
             value.user.updateProfile({displayName:this.state.fullName}).then((val)=>{
               auth.currentUser.sendEmailVerification().then((val2)=>{
                 this.setState({modalStatus:false})
-                if(email== 'dixre@gmail.com'){
-                  this.props.navigation.navigate('Admin')
-                }else{
-                  firestore().collection('users').doc(value.user.uid).set({
-                    email:email,
-                    fullName:fullName,
-                    photoUrl:''
-                  })
-                  this.props.navigation.navigate('MainNav')
-                }
+                this.props.navigation.navigate('NewScreen')
               }).catch((e)=>{
                 this.setState({modalStatus:false})
               })
@@ -209,23 +199,9 @@ class ScreenC extends React.Component{
                    value={this.state.password}
                   />
                   
-                  </View>
-                    
+                  </View>   
       
                   <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
-                  <View style={{flexDirection:'row'}}>
-                        <CheckBox 
-                          style={{marginLeft:30}}
-                          checked={this.state.checked}
-                          
-                        />
-                        <Text style={{marginLeft:12, color:'white'}}>Agree</Text>
-                        <CheckBox 
-                          style={{marginLeft:70}}
-                          checked={this.state.checked}
-                        />
-                        <Text style={{marginLeft:12, color:'white'}}> Don't agree</Text> 
-                  </View>
                   <Button
                     style={style.button2}
                     onPress={()=>this._signup()}

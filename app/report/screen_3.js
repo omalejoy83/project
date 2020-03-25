@@ -92,7 +92,7 @@ class ScreenC extends React.Component{
           fullName:'',
           modalStatus: false,
           error:'',
-          checked:'false'
+          checked:false
           
         }
       }
@@ -114,6 +114,9 @@ class ScreenC extends React.Component{
        fullName = fullName.trim();
         
        if(email && password && fullName){
+         if(this.state.checked== false) return this.setState({
+           error:'you must agree'
+         })
         this.setState({modalStatus:true},()=>{
           auth.createUserWithEmailAndPassword(email,password).then((value)=>{
             value.user.updateProfile({displayName:this.state.fullName}).then((val)=>{
@@ -122,12 +125,10 @@ class ScreenC extends React.Component{
                 if(email== 'dixre@gmail.com'){
                   this.props.navigation.navigate('Admin')
                 }else{
-                  firestore().collection('users').doc(value.user.uid).set({
-                    email:email,
-                    fullName:fullName,
-                    photoUrl:''
+                  this.setState({
+                    error:'A verification email has been sent to your email, please verify before logging in'
                   })
-                  this.props.navigation.navigate('MainNav')
+                  
                 }
               }).catch((e)=>{
                 this.setState({modalStatus:false})
@@ -168,8 +169,8 @@ class ScreenC extends React.Component{
                 style={{width: "100%", height: "100%"}}
               >
                 <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
-                <Text category='h1' appearance='alternative' style={{marginTop:70, paddingLeft:120}}>Hello</Text>
-                 <Text  appearance='alternative' style={{marginTop:15, paddingLeft:100, marginBottom:70}}>Create an Account</Text>
+                <Text category='h1' appearance='alternative' style={{marginTop:30, paddingLeft:120}}>Hello</Text>
+                 <Text  appearance='alternative' style={{marginTop:15, paddingLeft:100, marginBottom:20}}>Create an Account</Text>
                  <Text style={{color:'tomato', textAlign:'center'}}>{this.state.error}</Text>
                   <Input
                     label='Full Name:'
@@ -177,6 +178,7 @@ class ScreenC extends React.Component{
                     autoComplete='nombre'
                     autoCapitalize='none'
                     style={style.inputBox}
+                    labelStyle={{color:'white'}}
                     icon={PersonIcon}
                     onChangeText={(fullName)=>this.setState({
                      fullName:fullName
@@ -185,6 +187,7 @@ class ScreenC extends React.Component{
                   />
                   <Input
                     label='Email Address:'
+                    labelStyle={{color:'white'}}
                     placeholder='email'
                     autoComplete='email'
                     autoCapitalize='none'
@@ -197,6 +200,7 @@ class ScreenC extends React.Component{
                    value={this.state.email}
                   />
                   <Input
+                     labelStyle={{color:'white'}}
                     label='password:'
                     placeholder='password'
                     secureTextEntry={true}
@@ -213,18 +217,18 @@ class ScreenC extends React.Component{
                     
       
                   <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
+                  <Text style={{marginLeft:30, marginVertical:5, color:'white'}}>Do you agreee</Text>
+
                   <View style={{flexDirection:'row'}}>
+
                         <CheckBox 
-                          style={{marginLeft:30}}
+                          onPress={()=>this.setState({checked:!this.state.checked})}
+                          style={{marginLeft:20}}
                           checked={this.state.checked}
                           
                         />
                         <Text style={{marginLeft:12, color:'white'}}>Agree</Text>
-                        <CheckBox 
-                          style={{marginLeft:70}}
-                          checked={this.state.checked}
-                        />
-                        <Text style={{marginLeft:12, color:'white'}}> Don't agree</Text> 
+                        
                   </View>
                   <Button
                     style={style.button2}
