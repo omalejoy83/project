@@ -3,7 +3,7 @@
  */
 //import 'react-native-gesture-handler';
 import {AppRegistry, Text} from 'react-native';
-import App from './reportConfig';
+import App from './bibleConfig';
 //import App from './app/home';
 import React from 'react'
 import {name as appName} from './app.json';

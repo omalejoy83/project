@@ -54,6 +54,9 @@ const GoogleIcon = (style) => (
 const PersonIcon = (style) => (
    <Icon name='person-add' {...style} fill='gray' />
 );
+const Email = (style) => (
+  <Icon name='email' {...style} fill='black' />
+);
 
 const MessageIcon = (style) => (
   <Icon name='message-circle' fill="darkgray"{...style} />
@@ -143,25 +146,19 @@ class ScreenA extends React.Component{
       render(){
         
              return(
-                 //<Layout>
-                //<Text category='h1'>Screen 1</Text>
-                 //<Button size='small' onPress={()=>this.props.navigation.navigate('ScreenB',{
-                    // name:'Omale Joy',
-                    // age: 'Unknown'
-                 //})}>Next</Button>
-                 //</Layout>
+                 
 
                  <View style={{flex: 1}} key="1">
                <ScrollView showsVerticalScrollIndicator={false}>
                  {this.Indicator()}
              <StatusBar translucent={true} backgroundColor="transparent"/>
              <ImageBackground
-               source={require("../../assets/img/smarty.jpg")} 
+               source={require("../../assets/img/pix7.jpg")} 
                
                style={{width: "100%", height: "100%"}}
              >
                <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
-               <Text category='h1' appearance='alternative' style={{marginTop:70, paddingLeft:100}}>Welcome</Text>
+               <Text category='h1' appearance='alternative' style={{marginTop:70, paddingLeft:40, color:'black', fontWeight:'bold',letterSpacing:2}}>CRIME REPORT</Text>
                 <Text  appearance='alternative' style={{marginTop:15, paddingLeft:100, marginBottom:70}}>Sign In To Your Account</Text>
              <Text style={{color:'tomato', textAlign:'center'}}>{this.state.error}</Text>
                  <Input
@@ -169,7 +166,7 @@ class ScreenA extends React.Component{
                    returnKeyType='next'
                    autoCapitalize='none'
                    style={style.inputBox}
-                   icon={PersonIcon}
+                    icon={Email}
                    onChangeText={(email)=>this.setState({
                     email:email.trim()
                   })}
@@ -181,7 +178,6 @@ class ScreenA extends React.Component{
                    autoCapitalize='none'
                    secureTextEntry
                    style={style.inputBox}
-                    icon={PersonIcon}
                     onChangeText={(password)=>this.setState({
                       password:password.trim()
                     })}
@@ -197,6 +193,8 @@ class ScreenA extends React.Component{
      
                  <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
                  <Button
+                    textStyle={{fontSize:16,
+                      color:'white',letterSpacing:7}}
                    style={style.button2}
                    onPress={()=>this.UsersLogin()}
                   
@@ -287,11 +285,10 @@ inputBox:{
 },
 button2:{
   width:350,
-  backgroundColor:'#4f83cc',
+  backgroundColor:'black',
   borderRadius:25,
   paddingVertical:12,
-  fontSize:16,
-  color:'#002f6c',
+  borderColor:'black',
   marginVertical:10,
   marginTop:40,
   

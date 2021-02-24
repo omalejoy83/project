@@ -77,7 +77,7 @@ const Switch = createSwitchNavigator({
     headerMode:'none',
     
 })
-const persistenceKey2 = 'smakjhgrgggthhgggjmmmoyggkduukdg2yyy2233333kjhg3333'
+const persistenceKey2 = 'smakjhgrgggthhgggjmmmoyggkduuggggkdg2hhhyyy2233333kjhg3333'
 const persistNavigationState = async(navState)=>{
     console.log(navState)
 

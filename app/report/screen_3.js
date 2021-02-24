@@ -52,7 +52,10 @@ const GoogleIcon = (style) => (
 );
 
 const PersonIcon = (style) => (
-   <Icon name='person-add' {...style} fill='gray' />
+   <Icon name='person-add' {...style} fill='black' />
+);
+const Email = (style) => (
+  <Icon name='email' {...style} fill='black' />
 );
 
 const MessageIcon = (style) => (
@@ -164,13 +167,13 @@ class ScreenC extends React.Component{
                 {this.Indicator()}
               <StatusBar translucent={true} backgroundColor="transparent"/>
               <ImageBackground
-                source={require("../../assets/img/image2.jpg")} 
+                source={require("../../assets/img/pix7.jpg")} 
                 
                 style={{width: "100%", height: "100%"}}
               >
                 <View style={{backgroundColor: "rgba(0,0,0,0.7)", flex:1, justifyContent: "center", paddingHorizontal: 10}}>
-                <Text category='h1' appearance='alternative' style={{marginTop:30, paddingLeft:120}}>Hello</Text>
-                 <Text  appearance='alternative' style={{marginTop:15, paddingLeft:100, marginBottom:20}}>Create an Account</Text>
+                <Text category='h1' appearance='alternative' style={{marginTop:30, paddingLeft:50, color:'black',fontWeight:'bold'}}>CRIME REPORT</Text>
+                 <Text  appearance='alternative' style={{marginTop:5, paddingLeft:100, marginBottom:20}}>Create an Account</Text>
                  <Text style={{color:'tomato', textAlign:'center'}}>{this.state.error}</Text>
                   <Input
                     label='Full Name:'
@@ -193,7 +196,7 @@ class ScreenC extends React.Component{
                     autoCapitalize='none'
                     keyboardType='email-address'
                     style={style.inputBox}
-                    icon={PersonIcon}
+                    icon={Email}
                     onChangeText={(email)=>this.setState({
                      email:email
                    })}
@@ -206,7 +209,6 @@ class ScreenC extends React.Component{
                     secureTextEntry={true}
                     autoCapitalize='none'
                     style={style.inputBox}
-                    icon={PersonIcon}
                     onChangeText={(password)=>this.setState({
                      password:password
                    })}
@@ -231,6 +233,8 @@ class ScreenC extends React.Component{
                         
                   </View>
                   <Button
+                    textStyle={{fontSize:16,
+                      color:'white',letterSpacing:7}}
                     style={style.button2}
                     onPress={()=>this._signup()}
                        >
@@ -320,11 +324,10 @@ inputBox:{
 },
 button2:{
   width:350,
-  backgroundColor:'#4f83cc',
+  backgroundColor:'black',
   borderRadius:25,
   paddingVertical:12,
-  fontSize:16,
-  color:'#002f6c',
+  borderColor:"black",
   marginVertical:10,
   marginTop:40
 }

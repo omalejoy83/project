@@ -181,7 +181,7 @@ class NewScreen extends React.Component{
                 <Header>
              <Body style={{paddingLeft:10}}><Title>Reports</Title></Body>
                     <Right>
-                    <Button  iconleft icon={MoreIcon} appearance='ghost' ></Button>
+                    <Button  iconleft icon={MoreIcon} onPress={()=>this.props.navigation.navigate('ScreenA')} appearance='ghost' ></Button>
                     </Right>
                 </Header>
                  {this.showMap()}
@@ -196,7 +196,7 @@ class NewScreen extends React.Component{
                             <Avatar
                                 style={{width:50, height:50}}
                                 resizeMethod="resize"
-                                source={require("../../assets/img/smart.jpg")}
+                                source={require("../../assets/img/logo1.png")}
                               />
                         </View>
                         <View style={{flex:4}}>

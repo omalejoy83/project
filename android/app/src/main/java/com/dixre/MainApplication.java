@@ -12,6 +12,7 @@ import io.invertase.firebase.firestore.RNFirebaseFirestorePackage; // <-- Add th
 import io.invertase.firebase.auth.RNFirebaseAuthPackage; // <-- Add this line
 import io.invertase.firebase.database.RNFirebaseDatabasePackage; // <-- Add this line
 import io.invertase.firebase.storage.RNFirebaseStoragePackage; // <-- Add this line
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 
 
 import java.util.List;
@@ -57,6 +58,15 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+  }
+
+  @Override
+  protected List<ReactPackage> getPackages(){
+    @SuppressWarnings('UnnecessaryLocalVariable')
+    List<ReactPackage> packages = new PackageList(this).getPackages();
+    //packages that cannot be autolinked yet can be added manually here, for example:
+    packages.add(new RNDateTimePickerPackage());
+    return packages;
   }
 
   /**

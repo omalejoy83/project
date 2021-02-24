@@ -146,7 +146,7 @@ class ScreenA extends React.Component{
                  {this.Indicator()}
              <StatusBar translucent={true} backgroundColor="transparent"/>
              <ImageBackground
-               source={require("../../assets/img/smarty.jpg")} 
+               source={require("../../assets/img/pix6.jpg")} 
                
                style={{width: "100%", height: "100%"}}
              >

@@ -25,6 +25,7 @@ import {
   TouchableNativeFeedback,
   Image, ViewPagerAndroid, TouchableNativeFeedbackBase,Dimensions
 } from 'react-native';
+import {SliderBox} from 'react-native-image-slider-box'
 import firebase from 'react-native-firebase'
 import {GiftedChat} from 'react-native-gifted-chat';
 
@@ -88,6 +89,12 @@ const PinIcon = (style) => (
 class Home extends React.Component{
         constructor(Props){
           super(Props)
+          this.state= {
+            images:[require('../../assets/img/slider1.jpg'),
+                    require('../../assets/img/slider2.jpg'),
+                    require('../../assets/img/slider3.jpg'),
+                    require('../../assets/img/gun.jpg')
+            ]}
           
         }
         confirm(){ 
@@ -113,6 +120,7 @@ class Home extends React.Component{
                
                style={{flex:1}}
              >
+               
                <View style={{flex:1,justifyContent:"center",alignContent:"center",marginHorizontal:10}}>
                <Avatar
                      style={{marginHorizontal:110,marginBottom:30,marginTop:-40, width:130, height:130}}
